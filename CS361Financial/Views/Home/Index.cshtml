@@ -3,6 +3,17 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Stock Research</h1>
+    <p>Please enter a stock ticker below for information and performance</p>
+    <form method="post">
+        <div class="form-group">
+            <label for="stockTicker">Stock Ticker:</label><br>
+        </div>
+        <div class="form-group">
+            <input type="text" id="stockTicker" name="stockTicker"><br>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
 </div>

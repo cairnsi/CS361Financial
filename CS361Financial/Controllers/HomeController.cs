@@ -18,9 +18,19 @@ namespace CS361Financial.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(string stockTicker)
+        {
+            StockGeneralInfo info = new StockGeneralInfo();
+            info.name = "MICROSOFT CORPORATION";
+            info.ticker = "MSFT";
+            return View("StockLanding",info);
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,13 @@
+﻿@model CS361Financial.Models.StockGeneralInfo
+
+@{
+    ViewData["Title"] = "Stock Landing Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.ticker: @Model.name</h1>
+    @if (Model.marketCap != null && false)
+    {
+        <h1 class="display-4">@Model.</h1>
+    }
+</div>
