@@ -30,7 +30,31 @@ namespace CS361Financial.Controllers
             StockGeneralInfo info = new StockGeneralInfo();
             info.name = "MICROSOFT CORPORATION";
             info.ticker = "MSFT";
+            info.previousClose = 309.05M;
+            info.week52high = 311.03M;
+            info.week52low = 302.01M;
+            info.ptoe = 38.20M;
+            info.marketCap = 2.31M;
             return View("StockLanding",info);
+        }
+
+        [HttpGet]
+        public IActionResult HistoricalReturns(string stockTicker)
+        {
+            StockGeneralInfo info = new StockGeneralInfo();
+            info.name = "MICROSOFT CORPORATION";
+            info.ticker = "MSFT";
+            info.previousClose = 309.05M;
+            info.week52high = 311.03M;
+            info.week52low = 302.01M;
+            info.ptoe = 38.20M;
+            info.marketCap = 2.31M;
+            info.returnsYTD = 20.03M;
+            info.returns1Y = 70.98M;
+            info.returns2Y = 150.56M;
+            info.returns5Y = 347.32M;
+            info.returns10Y = 649.43M;
+            return View("HistoricalReturns", info);
         }
 
         public IActionResult Privacy()

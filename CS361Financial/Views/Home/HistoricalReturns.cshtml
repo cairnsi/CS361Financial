@@ -1,0 +1,52 @@
+﻿@model CS361Financial.Models.StockGeneralInfo
+
+@{
+    ViewData["Title"] = "Historical Returns";
+}
+
+<div class="text-center">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2" class="display-4"><u>Historical Returns: @Model.name</u></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.returnsYTD != 0)
+            {
+                <tr>
+                    <td>YTD returns: </td>
+                    <td>$@Model.returnsYTD</td>
+                </tr>
+            }
+            @if (Model.returns1Y != 0)
+            {
+                <tr>
+                    <td>1 Year Returns: </td>
+                    <td>$@Model.returns1Y</td>
+                </tr>
+            }
+            @if (Model.returns2Y != 0)
+            {
+                <tr>
+                    <td>2 Year Returns: </td>
+                    <td>$@Model.returns2Y</td>
+                </tr>
+            }
+            @if (Model.returns5Y != 0)
+            {
+                <tr>
+                    <td>5 Year Returns: </td>
+                    <td>$@Model.returns5Y</td>
+                </tr>
+            }
+            @if (Model.returns10Y != 0)
+            {
+                <tr>
+                    <td>10 Year Returns</td>
+                    <td>$@Model.returns10Y</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

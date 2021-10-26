@@ -11,6 +11,14 @@ namespace CS361Financial.Models
         public string ticker;
         public decimal value;
         public decimal previousClose;
-        public int marketCap;
+        public decimal marketCap;
+        public decimal ptoe;
+        public decimal week52high;
+        public decimal week52low;
+        public decimal returnsYTD;
+        public decimal returns1Y;
+        public decimal returns2Y;
+        public decimal returns5Y;
+        public decimal returns10Y;
     }
 }
