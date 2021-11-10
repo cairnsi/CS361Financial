@@ -30,6 +30,11 @@ namespace CS361Financial.Controllers
             return View(error);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stockTicker"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Index(string stockTicker)
         {
