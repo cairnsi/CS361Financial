@@ -20,5 +20,6 @@ namespace CS361Financial.Models
         public decimal returns2Y;
         public decimal returns5Y;
         public decimal returns10Y;
+        public string description;
     }
 }

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eMzXpi47axcUmc4agkkoPqNi4Xbck9d/Y3BT1fQveZEAtYrUNN/e0jY4mgGqBphbbrBXq3brIJ0z25ydQ/yT+g==",
+  "dgSpecHash": "vZ1L+KRtD6/AJTbfNPDjt10qRt8P2nHvqDrLAjey5Mfo+wNmRpvjSSXrA6oMyM6NQhzJF21HLIXCENXm6bUl/g==",
   "success": true,
   "projectFilePath": "C:\\Users\\icair\\source\\repos\\CS361Financial\\CS361Financial\\CS361Financial.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\icair\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

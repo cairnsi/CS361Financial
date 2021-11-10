@@ -6,35 +6,64 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CS361Financial.Clients;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace CS361Financial.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private HttpClient teammateClient;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AngelaFinance angelaFinance)
         {
             _logger = logger;
+            this.teammateClient = angelaFinance.Client;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            errorMessage error = new errorMessage();
+            return View(error);
         }
 
         [HttpPost]
-        public IActionResult Index(string stockTicker)
+        public async Task<IActionResult> Index(string stockTicker)
         {
             StockGeneralInfo info = new StockGeneralInfo();
-            info.name = "MICROSOFT CORPORATION";
-            info.ticker = "MSFT";
-            info.previousClose = 309.05M;
-            info.week52high = 311.03M;
-            info.week52low = 302.01M;
-            info.ptoe = 38.20M;
-            info.marketCap = 2.31M;
+            using (HttpResponseMessage response = await teammateClient.GetAsync($"/{stockTicker}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    try
+                    {
+                        string content = await response.Content.ReadAsStringAsync();
+                        var json = JObject.Parse(content);
+                        string valueString = json["price"].ToString();
+                        decimal price = decimal.Parse(valueString);
+                        info.value = price;
+                        info.description = json["description"].ToString();
+                        info.name = json["name"].ToString();
+                    }
+                    catch
+                    {
+                        errorMessage error = new errorMessage();
+                        error.message = "Could not parse api response";
+                        return View("Index", error);
+                    }
+
+                }
+                else
+                {
+                    errorMessage error = new errorMessage();
+                    error.message = "Ticker not found";
+                    return View("Index", error);
+                }
+            }
+            info.ticker = stockTicker.ToUpper();
             return View("StockLanding",info);
         }
 

@@ -5,12 +5,8 @@
 }
 
 <div class="text-center">
+    <h2 class="display-4">@Model.ticker: @Model.name</h2>
     <table>
-        <thead>
-            <tr>
-                <th colspan="2" class="display-4"><u>@Model.ticker: @Model.name</u></th>
-            </tr>
-        </thead>
         <tbody>
             @if (Model.value != 0)
             {
@@ -19,43 +15,11 @@
                     <td>$@Model.value</td>
                 </tr>
             }
-            @if (Model.previousClose != 0)
-            {
-                <tr>
-                    <td>Previous Close: </td>
-                    <td>$@Model.previousClose</td>
-                </tr>
-            }
-            @if (Model.marketCap != 0)
-            {
-                <tr>
-                    <td>Market Cap: </td>
-                    <td>@Model.marketCap T</td>
-                </tr>
-            }
-            @if (Model.ptoe != 0)
-            {
-                <tr>
-                    <td>P/E: </td>
-                    <td>@Model.ptoe</td>
-                </tr>
-            }
-            @if (Model.week52high != 0)
-            {
-                <tr>
-                    <td>52 Week High: </td>
-                    <td>$@Model.week52high</td>
-                </tr>
-            }
-            @if (Model.week52low != 0)
-            {
-                <tr>
-                    <td>52 Week low: </td>
-                    <td>$@Model.week52low</td>
-                </tr>
-            }
-
         </tbody>
     </table>
+    <br />
+    @if (!String.IsNullOrEmpty(Model.description))
+    {
+        <p>@Model.description</p>
+    }
 </div>
-<a href="/Home/historicalreturns?stockTicker=@Model.ticker">Historical Returns</a>

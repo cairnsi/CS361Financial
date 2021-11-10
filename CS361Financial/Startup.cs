@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CS361Financial.Clients;
 
 namespace CS361Financial
 {
@@ -24,6 +25,7 @@ namespace CS361Financial
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddHttpClient<AngelaFinance>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
