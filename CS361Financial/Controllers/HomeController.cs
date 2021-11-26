@@ -41,11 +41,14 @@ namespace CS361Financial.Controllers
             StockGeneralInfo info = new StockGeneralInfo();
             using (HttpResponseMessage response = await teammateClient.GetAsync($"/{stockTicker}"))
             {
+                //check if response is successuful
                 if (response.IsSuccessStatusCode)
                 {
                     try
                     {
+                        //get content from response
                         string content = await response.Content.ReadAsStringAsync();
+                        //convert to json
                         var json = JObject.Parse(content);
                         string valueString = json["price"].ToString();
                         decimal price = decimal.Parse(valueString);
